@@ -11,6 +11,7 @@
 #include "nvs_flash.h"
 #include "esp_ota_ops.h"
 #include "esp_heap_caps.h"
+#include "vittil.h"
 #include "version.h"
 
 #include "AppMain.hpp"
@@ -99,6 +100,7 @@ void heap_caps_alloc_failed_hook(size_t requestedSize, uint32_t caps, const char
 // cppcheck-suppress unusedFunction symbolName=app_main
 extern "C" void app_main()
 {
+    vittil_start();
     //
     //  Failed allocations are counted in every build.  The heap takes one callback, so the
     //  develop build's report of each failure is called from the metrics' callback.
